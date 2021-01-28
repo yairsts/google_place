@@ -65,7 +65,10 @@ class Autocomplete {
     String sessionToken,
     int offset,
     LatLon origin,
-    LatLon location,
+    double lat, 
+    double lon,    
+    double latOrigin, 
+    double lonOrigin,
     int radius,
     String language,
     String types,
@@ -78,12 +81,15 @@ class Autocomplete {
       assert(location != null);
       assert(radius != null);
     }
+    LatLon latlng = LatLon(lat, lon);
+    LatLon latlngOrigin = LatLon(latOrigin, lonOrigin);
+
     var queryParameters = _createParameters(
       apiKEY,
       input,
       sessionToken,
       offset,
-      origin,
+      latlngOrigin,
       location,
       radius,
       language,
