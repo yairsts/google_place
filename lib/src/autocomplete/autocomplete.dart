@@ -65,9 +65,9 @@ class Autocomplete {
     String sessionToken,
     int offset,
     LatLon origin,
-    double lat, 
-    double lon,    
-    double latOrigin, 
+    double lat,
+    double lon,
+    double latOrigin,
     double lonOrigin,
     int radius,
     String language,
@@ -77,19 +77,18 @@ class Autocomplete {
   }) async {
     assert(input != null);
     assert(input != "");
+    LatLon location = LatLon(lat, lon);
+    LatLon origin = LatLon(latOrigin, lonOrigin);
     if (strictbounds) {
       assert(location != null);
       assert(radius != null);
     }
-    LatLon latlng = LatLon(lat, lon);
-    LatLon latlngOrigin = LatLon(latOrigin, lonOrigin);
-
     var queryParameters = _createParameters(
       apiKEY,
       input,
       sessionToken,
       offset,
-      latlngOrigin,
+      origin,
       location,
       radius,
       language,
