@@ -78,7 +78,8 @@ class Autocomplete {
     assert(input != null);
     assert(input != "");
     LatLon location = LatLon(lat, lon);
-    LatLon origin = LatLon(latOrigin, lonOrigin);
+    LatLon origin;
+    if (latOrigin != null && lonOrigin != null) origin = LatLon(latOrigin, lonOrigin);
     if (strictbounds) {
       assert(location != null);
       assert(radius != null);
